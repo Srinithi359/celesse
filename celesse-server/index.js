@@ -7,14 +7,14 @@ import Order from "./models/Order.js";
 import User from "./models/User.js";
 
 const app = express();
-const JWT_SECRET = "celesse_secret_key";
+const JWT_SECRET = process.env.JWT_SECRET || "celesse_secret_key";
 
 app.use(cors());
 app.use(express.json());
 
-// 🔥 CONNECT MONGODB
+// 🔥 CONNECT MONGODB ATLAS
 mongoose
-  .connect("mongodb://127.0.0.1:27017/celesse")
+  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/celesse")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
@@ -130,6 +130,7 @@ app.put("/user/update", async (req, res) => {
 });
 
 // 🔥 START SERVER
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
