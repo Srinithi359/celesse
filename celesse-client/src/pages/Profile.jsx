@@ -17,7 +17,7 @@ function Profile({ user, setUser, setSelectedPage, cart = [], wishlist = [] }) {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put("http://localhost:5000/user/update", {
+      const res = await axios.put(`${import.meta.env.VITE_API_URL}/user/update`, {
         email: user?.email,
         name: form.name,
         phone: form.phone,

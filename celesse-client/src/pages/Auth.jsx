@@ -19,7 +19,7 @@ function Auth({ setUser, setSelectedPage }) {
     try {
       if (isLogin) {
         // ✅ LOGIN
-        const res = await axios.post("http://localhost:5000/login", {
+        const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
           email: form.email,
           password: form.password,
         });
@@ -32,7 +32,7 @@ function Auth({ setUser, setSelectedPage }) {
           toast.error("Please enter your name!");
           return;
         }
-        await axios.post("http://localhost:5000/register", {
+        await axios.post(`${import.meta.env.VITE_API_URL}/register`, {
           name: form.name,
           email: form.email,
           password: form.password,

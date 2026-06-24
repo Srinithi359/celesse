@@ -9,7 +9,7 @@ function OrderHistory({ user, setSelectedPage }) {
     if (!user) return;
     const email = user?.email || user;
     axios
-      .get(`http://localhost:5000/orders/${email}`)
+      .get(`${import.meta.env.VITE_API_URL}/orders/${email}`)
       .then((res) => {
         setOrders(res.data);
         setLoading(false);
