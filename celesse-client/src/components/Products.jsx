@@ -40,7 +40,7 @@ function Products({
         filtered.map((product, i) => (
           <div key={i} className="bg-gray-800 p-4 rounded-lg">
             <img
-              src={`/src/assets/${product.image}.jpg`}
+              src={`/images/${product.image}.jpg`}
               alt={product.title}
               className="h-48 w-full object-cover mb-4 rounded"
             />
@@ -52,7 +52,7 @@ function Products({
                 onClick={() =>
                   addToCart({
                     ...product,
-                    image: `/src/assets/${product.image}.jpg`,
+                    image: `/images/${product.image}.jpg`,
                   })
                 }
                 className="bg-yellow-500 text-black px-4 py-2 rounded"
@@ -64,7 +64,7 @@ function Products({
                 onClick={() => {
                   addToWishlist({
                     ...product,
-                    image: `/src/assets/${product.image}.jpg`,
+                    image: `/images/${product.image}.jpg`,
                   });
                   toast.success("Added to wishlist ❤️");
                 }}
@@ -77,7 +77,7 @@ function Products({
                 onClick={() => {
                   setSelectedProduct({
                     ...product,
-                    image: `/src/assets/${product.image}.jpg`,
+                    image: `/images/${product.image}.jpg`,
                   });
                   setSelectedPage("product");
                 }}
