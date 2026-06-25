@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import Order from "./models/Order.js";
 import User from "./models/User.js";
+
+dotenv.config();
 
 const app = express();
 const JWT_SECRET = process.env.JWT_SECRET || "celesse_secret_key";
@@ -14,7 +17,7 @@ app.use(express.json());
 
 // 🔥 CONNECT MONGODB ATLAS
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/celesse")
+  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/celesse")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
